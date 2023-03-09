@@ -43,6 +43,18 @@ namespace NinjaTrader.NinjaScript.Indicators
 				//Disable this property if your indicator requires custom values that cumulate with each new market data event. 
 				//See Help Guide for additional information.
 				IsSuspendedWhileInactive					= true;
+
+				SyntheticBarSize									= 1;
+				MinNumberOfImbalances							= 3;
+				ImbalanceRatio										= 3.0;
+				WinningSideMinSize								= 0.0;
+				LosingSideMinSize									= 1.0;
+				MinDeltaForImbalance							= 0;
+				ConcentratedImbalancesBarRatio		= 0.33;
+				NumberInConcentratedImbalances		= 4;
+				AllowStacked1TickGap							= false;
+				DrawSupportResistanceZones				= false;
+				
 			}
 			else if (State == State.Configure)
 			{
