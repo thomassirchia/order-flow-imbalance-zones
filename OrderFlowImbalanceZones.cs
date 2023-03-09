@@ -53,6 +53,67 @@ namespace NinjaTrader.NinjaScript.Indicators
 		{
 			//Add your custom indicator logic here.
 		}
+
+		#region Properties
+		[NinjaScriptProperty]
+		[Range(1, int.MaxValue)]
+		[Display(Name="Synthetic Bar Size", Order=1, GroupName="Imbalances")]
+		public int SyntheticBarSize
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Range(0, int.MaxValue)]
+		[Display(Name="Min # of Stacked Imbalances", Order=2, GroupName="Imbalances")]
+		public int MinNumberOfImbalances
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Range(0, double.MaxValue)]
+		[Display(Name="Ratio for Imbalance", Order=3, GroupName="Imbalances")]
+		public double ImbalanceRatio
+		{ get; set; }
+		
+		
+		[NinjaScriptProperty]
+		[Range(0, int.MaxValue)]
+		[Display(Name="Min Delta for Imbalance", Order=4, GroupName="Imbalances")]
+		public int MinDeltaForImbalance
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Range(0, double.MaxValue)]
+		[Display(Name="Min Size for Winning Imbalance Side", Order=5, GroupName="Imbalances")]
+		public double WinningSideMinSize
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Range(0, double.MaxValue)]
+		[Display(Name="Min Size for Losing Imbalance Side", Order=6, GroupName="Imbalances")]
+		public double LosingSideMinSize
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Display(Name="Allow 1 tick gap in imbalances", Order=7, GroupName="Imbalances")]
+		public bool AllowStacked1TickGap
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Display(Name="Draw Support/Resistance Zones", Order=8, GroupName="Drawings")]
+		public bool DrawSupportResistanceZones
+		{ get; set; }
+
+		[NinjaScriptProperty]
+		[Range(0, double.MaxValue)]
+		[Display(Name="Concentrated Imbalance to Bar Ratio", Order=9, GroupName="Imbalances")]
+		public double ConcentratedImbalancesBarRatio
+		{ get; set; }
+		
+		[NinjaScriptProperty]
+		[Range(0, int.MaxValue)]
+		[Display(Name="# of Imbalances in Concentrated Imbalance Cluster", Order=10, GroupName="Imbalances")]
+		public int NumberInConcentratedImbalances
+		{ get; set; }
+		#endregion
 	}
 }
 
