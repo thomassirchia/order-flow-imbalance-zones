@@ -26,6 +26,10 @@ namespace NinjaTrader.NinjaScript.Indicators
 {
 	public class OrderFlowImbalanceZones : Indicator
 	{
+		private Series<Dictionary<double, List<double>>> listBidAskVol;
+		private Series<Dictionary<string, List<double>>> listStackedBuyingImbalances;
+		private Series<Dictionary<string, List<double>>> listStackedSellingImbalances;
+		
 		protected override void OnStateChange()
 		{
 			if (State == State.SetDefaults)
@@ -64,6 +68,12 @@ namespace NinjaTrader.NinjaScript.Indicators
 			}
 			else if (State == State.Configure)
 			{
+			}
+			else if (State == State.DataLoaded) 
+			{
+				listBidAskVol = new Series<Dictionary<double, List<double>>>(this);
+				listStackedBuyingImbalances = new Series<Dictionary<string, List<double>>>(this);
+				listStackedSellingImbalances = new Series<Dictionary<string, List<double>>>(this);
 			}
 		}
 
