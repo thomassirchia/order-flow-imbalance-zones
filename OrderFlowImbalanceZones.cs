@@ -55,6 +55,12 @@ namespace NinjaTrader.NinjaScript.Indicators
 				AllowStacked1TickGap							= false;
 				DrawSupportResistanceZones				= false;
 				
+				AddPlot(Brushes.Transparent, "Stacked Buying Imbalances");
+				AddPlot(Brushes.Transparent, "Stacked Selling Imbalances");
+				AddPlot(Brushes.Transparent, "Buying Imbalances");
+				AddPlot(Brushes.Transparent, "Selling Imbalances");
+				AddPlot(Brushes.Transparent, "Concentrated Buying Imbalances");
+				AddPlot(Brushes.Transparent, "Concentrated Selling Imbalances");
 			}
 			else if (State == State.Configure)
 			{
@@ -125,6 +131,48 @@ namespace NinjaTrader.NinjaScript.Indicators
 		[Display(Name="# of Imbalances in Concentrated Imbalance Cluster", Order=10, GroupName="Imbalances")]
 		public int NumberInConcentratedImbalances
 		{ get; set; }
+
+		[Browsable(false)]
+		[XmlIgnore]
+		public Series<double> StackedBullishImbalances
+		{
+			get { return Values[0]; }
+		}
+
+		[Browsable(false)]
+		[XmlIgnore]
+		public Series<double> StackedSellingImbalances
+		{
+			get { return Values[1]; }
+		}
+		
+		[Browsable(false)]
+        [XmlIgnore]
+        public Series<double> BuyingImbalances  
+        {
+			get { return Values[2]; }
+		}
+		
+		[Browsable(false)]
+        [XmlIgnore]
+        public Series<double> SellingImbalances  
+        {
+			get { return Values[3]; }
+		}
+
+		[Browsable(false)]
+        [XmlIgnore]
+        public Series<double> ConcentratedBuyingImbalances  
+        {
+			get { return Values[4]; }
+		}
+		
+		[Browsable(false)]
+        [XmlIgnore]
+        public Series<double> ConcentratedSellingImbalances  
+        {
+			get { return Values[5]; }
+		}
 		#endregion
 	}
 }
